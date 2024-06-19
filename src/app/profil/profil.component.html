@@ -1,0 +1,47 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="avatar">
+      <img src="https://images.pexels.com/photos/375880/pexels-photo-375880.jpeg?auto=compress&cs=tinysrgb&w=800" alt="profile-img">
+    </div>
+    <div class="user-info">
+      <div class="name">Nom: {{ authentification.utilisateur?.nom }}</div>
+      <div class="name">Prénom: {{ authentification.utilisateur?.prenom }}</div>
+      <div class="name">Email: {{ authentification.utilisateur?.sub }}</div>
+      <div class="designation">
+        @if (authentification.utilisateur?.role === 'ROLE_ADMIN') {
+          <p>Vous êtes administrateur</p>
+        }
+        @if (authentification.utilisateur?.role === 'ROLE_CLIENT') {
+          <p>Vous êtes client</p>
+        }
+        @if (authentification.utilisateur?.role === 'ROLE_TECH') {
+          <p>Vous êtes technicien</p>
+        }
+        @if (authentification.utilisateur?.role === 'ROLE_ADH') {
+          <p>Vous êtes adhérent à l'association</p>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="profile-body">
+    <div class="info-group">
+      <div class="info">
+        <p><strong>Adresse:</strong> 123 Rue de la Voiture, 75000 Paris</p>
+      </div>
+      <div class="info">
+        <p><strong>Téléphone:</strong> +33 1 23 45 67 89</p>
+      </div>
+    </div>
+    <div class="info-group">
+      <div class="info">
+        <p><strong>Date de naissance:</strong> 01/01/1980</p>
+      </div>
+      <div class="info">
+        <p><strong>Inscrit depuis:</strong> 01/01/2020</p>
+      </div>
+    </div>
+  </div>
+  <div class="profile-footer">
+    <button routerLink="/edit-profil"><span>Modifier le profil</span></button>
+  </div>
+</div>

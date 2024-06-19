@@ -1,0 +1,61 @@
+/* Form Styles */
+.login {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid #ff6600;
+  margin: -50px auto 10px;
+}
+
+.login-header {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.login-container input,
+.login-container mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.login-container button {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login-container button:hover {
+  background-color: #cc5200;
+}
+
+.login-container mat-error {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Styles pour les icônes des mots de passe */
+.password-toggle-button {
+  font-size: 1rem;
+  color: #666;
+  margin-left: -40px;
+}
+
+.password-toggle-button:hover {
+  color: #333;
+}

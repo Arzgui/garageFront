@@ -1,0 +1,17 @@
+<section class="contact py-5 bg-light" id="contact">
+  <div class="container">
+    <h2 class="text-center mb-5">Contactez-nous</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4" *ngFor="let contact of contacts">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title">{{ contact.title }}</h3>
+            <h4 class="card-subtitle mb-2 text-muted">{{ contact.name }}</h4>
+            <a class="d-block mb-1" [href]="'tel:' + contact.phone">Téléphone: {{ contact.phone }}</a>
+            <a class="d-block" [href]="'mailto:' + contact.email">Email: {{ contact.email }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

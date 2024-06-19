@@ -1,0 +1,20 @@
+/* Global Styles */
+html, body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100vh; /* Sets the viewport height for full-page layout */
+  display: flex; /* Enables flexbox layout */
+  flex-direction: column;
+}
+
+/* Form Styling */
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto; /* Centers the form horizontally */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

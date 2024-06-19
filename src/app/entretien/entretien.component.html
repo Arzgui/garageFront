@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajoutez votre voiture - NORKAR Garage</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-header bg-dark text-white text-center py-3">
+          <h5 class="card-title mb-0">Ajoutez votre voiture</h5>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="plaqueVoiture" class="form-label">Plaque Voiture</label>
+              <input type="text" class="form-control" id="plaqueVoiture" formControlName="plaqueVoiture">
+              @if (formulaire.get('plaqueVoiture')?.errors?.['invalidPlate']) {
+                <div class="invalid-feedback">
+                  {{ formulaire.get('plaqueVoiture')?.errors?.['invalidPlate'] }}
+                </div>
+                <mat-error>Le format de la plaque est invalide</mat-error>
+              }
+            </div>
+            <div class="mb-3">
+              <mat-form-field>
+                <mat-label>Marque voiture</mat-label>
+                <mat-select (selectionChange)="onSelectionMarque()" [(ngModel)]="selectedMarque" [ngModelOptions]="{standalone:true}">
+                  @for (marquevoiture of listeMarqueVoiture; track marquevoiture.idMarque) {
+                    <mat-option [value]="marquevoiture" class="mat-option-color">{{ marquevoiture.nomMarque }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="mb-3">
+              <mat-form-field>
+                <mat-label>Modèle voiture</mat-label>
+                <mat-select [(ngModel)]="selectedModele" [ngModelOptions]="{standalone:true}">
+                  @for (modelevoiture of listeModeleFiltre; track modelevoiture.idModele) {
+                    <mat-option [value]="modelevoiture" class="mat-option-color">{{ modelevoiture.nomModele }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Ajoutez votre voiture</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

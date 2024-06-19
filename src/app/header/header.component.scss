@@ -1,0 +1,48 @@
+/* Navbar Styles */
+.navbar {
+  background-color: #343a40;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase; /* Optional: for consistent styling */
+}
+
+.nav-link {
+  color: #fff;
+  transition: color 0.3s ease-in-out;
+  padding: 0.5rem 1rem; /* Optional: for better spacing */
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffc107;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.btn-link {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem; /* Optional: for better spacing */
+}
+
+/* Optional: Responsive styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar-toggler {
+    display: block;
+  }
+}
+

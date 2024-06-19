@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription - NORKAR Garage</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="login">
+  <div class="login-triangle"></div>
+  <h2 class="login-header">Inscription</h2>
+  <form class="formulaire login-container" [formGroup]="formulaire" (ngSubmit)="onInscription()">
+    <div class="mb-3">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="nom" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <mat-label>Prénom</mat-label>
+      <input matInput formControlName="prenom" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" class="form-control" />
+      @if(formulaire.get("email")?.touched && formulaire.get("email")?.hasError('required')) {
+        <mat-error>L'email est obligatoire</mat-error>
+      }
+      @if(formulaire.get("email")?.touched && formulaire.get("email")?.hasError('email')) {
+        <mat-error>L'email est mal formé</mat-error>
+      }
+    </div>
+    <div class="mb-3">
+      <mat-label>Mot de passe</mat-label>
+      <div class="input-group">
+        <input
+          matInput
+          formControlName="motDePasse"
+          (change)="verifierMotDePasseIdentique()"
+          [type]="afficheMotDePasse ? 'text' : 'password'"
+          class="form-control"
+        />
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          (click)="afficheMotDePasse = !afficheMotDePasse"
+          [attr.aria-label]="'Afficher ou masquer le mot de passe'"
+          [attr.aria-pressed]="afficheMotDePasse"
+        >
+          <i class="fas" [ngClass]="{'fa-eye': !afficheMotDePasse, 'fa-eye-slash': afficheMotDePasse}"></i>
+        </button>
+      </div>
+      @if(formulaire.get("motDePasse")?.touched && formulaire.get("motDePasse")?.hasError('required')) {
+        <mat-error>Le mot de passe est obligatoire</mat-error>
+      }
+    </div>
+    <div class="mb-3">
+      <mat-label>Confirmer le mot de passe</mat-label>
+      <div class="input-group">
+        <input
+          matInput
+          [(ngModel)]="confirmationMotDePasse"
+          [ngModelOptions]="{ standalone: true }"
+          (change)="verifierMotDePasseIdentique()"
+          [type]="afficheMotDePasseConfirme ? 'text' : 'password'"
+          class="form-control"
+        />
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          (click)="afficheMotDePasseConfirme = !afficheMotDePasseConfirme"
+          [attr.aria-label]="'Afficher ou masquer le mot de passe confirmé'"
+          [attr.aria-pressed]="afficheMotDePasseConfirme"
+        >
+          <i class="fas" [ngClass]="{'fa-eye': !afficheMotDePasseConfirme, 'fa-eye-slash': afficheMotDePasseConfirme}"></i>
+        </button>
+      </div>
+      @if(motDePasseDifferent) {
+        <mat-error>Les mots de passe ne sont pas identiques</mat-error>
+      }
+    </div>
+    <button type="submit" mat-raised-button color="primary" class="btn btn-primary w-100">Créer mon compte</button>
+  </form>
+</div>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

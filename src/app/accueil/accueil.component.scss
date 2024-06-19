@@ -1,0 +1,82 @@
+/* Global styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.landing-page {
+  background: url("https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") center;
+  background-size: cover;
+  text-align: center;
+  padding: 100px 20px;
+  color: #fff;
+}
+
+.landing-page h1 {
+  font-size: 3.5em;
+  font-weight: 700;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.offer-page {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.offer-box {
+  background-color: #fff;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.offer-box:hover {
+  transform: scale(1.05);
+}
+
+.contact {
+  background-color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.engineers h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.contact-forms a {
+  display: block;
+  color: #007bff;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+.contact-forms a:hover {
+  color: #0056b3;
+}

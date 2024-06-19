@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste de Voitures d'Occasion - NORKAR Garage</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+  <div class="landing-page-text">
+    <div class="grid-container">
+      @for (voitureOccasion of listeVoitureOccasion; track voitureOccasion.id) {
+        <div class="grid-item mt-2">
+          <div class="card h-100">
+            <div class="card-header bg-dark text-white">
+              <h4 class="card-title">{{ voitureOccasion.nomVoitureOccasion }}</h4>
+            </div>
+            <img [src]="voitureOccasion.image" class="card-img-top" alt="Photo de la voiture">
+            <div class="card-body">
+              <h5 class="card-title text-success">{{ voitureOccasion.prixVoitureOccasion | currency:'EUR' }}</h5>
+              <p class="card-text">{{ voitureOccasion.description }}</p>
+              <p class="text-muted">Date de mise en vente :<br>{{ voitureOccasion.dateArriver | date:'longDate' }}</p>
+              @if (authentification.utilisateur.role === 'ROLE_ADMIN') {
+                <div class="text-end">
+                  <button mat-raised-button color="accent" class="btn btn-warning">Voir</button>
+                  <button mat-raised-button color="warn" class="btn btn-danger" (click)="onSupprimerProduit(voitureOccasion.id)">Supprimer</button>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

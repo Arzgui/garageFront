@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifier le profil</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+</head>
+<body>
+<div class="login-container">
+  <h1>Modifier votre profil</h1>
+  <form class="formulaire" [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="nom" />
+
+    <mat-label>Prénom</mat-label>
+    <input matInput formControlName="prenom" />
+
+    <button type="submit">Modifier le profil</button>
+  </form>
+</div>
+</body>
+</html>
